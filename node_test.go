@@ -5,13 +5,13 @@ import (
 	"fmt"
 )
 
-func TestNodeConstructorWithoutInput(t *testing.T) {
-	var node = Node{}
+func TestNodeConstructorWithInput(t *testing.T) {
+	var node = Node{1}
 	valueResult := node.val
 
-	if valueResult != nil {
-		t.Errorf("TestNodeConstructorWithoutInput: node.val failed")
-		fmt.Println("Expected: ", nil)
+	if valueResult != 1 {
+		t.Errorf("TestNodeConstructorWithInput: node.val failed")
+		fmt.Println("Expected: ", 1)
 		fmt.Println("Actual: ", valueResult)
 	}
 
