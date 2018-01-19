@@ -43,3 +43,37 @@ func TestNodeConstructorChildrenParentNil(t *testing.T) {
 
 
 }
+
+func TestNodeCanAssignChildrenAndParents(t *testing.T) {
+	var node = Node{1, nil, nil, nil}
+
+	var rightNode = Node{2, nil, nil, nil}
+	var leftNode = Node{2, nil, nil, nil}
+	var parentNode = Node{2, nil, nil, nil}
+
+	node.right = &rightNode
+	node.left = &leftNode
+	node.parent = &parentNode
+
+	rightResult := node.right
+	leftResult := node.left
+	parentResult := node.parent
+
+	if rightResult != &rightNode {
+		t.Errorf("TestCanAssignRightChild")
+		fmt.Println("Expected: ", &rightNode)
+		fmt.Println("Actual: ", rightResult)
+	}
+
+	if leftResult != &leftNode {
+		t.Errorf("TestCanAssignLeftChild")
+		fmt.Println("Expected: ", &leftNode)
+		fmt.Println("Actual: ", leftResult)
+	}
+
+	if parentResult != &parentNode {
+		t.Errorf("TestCanAssignParent")
+		fmt.Println("Expected: ", &parentNode)
+		fmt.Println("Actual: ", parentResult)
+	}
+}
