@@ -1,5 +1,6 @@
 package goBST
 
 type Node struct {
-	val int32
+	value int32
+	right *Node
 }
