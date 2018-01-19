@@ -6,7 +6,7 @@ import (
 )
 
 func TestNodeConstructorWithInput(t *testing.T) {
-	var node = Node{1, nil}
+	var node = Node{1, nil, nil, nil}
 	valueResult := node.value
 
 	if valueResult != 1 {
@@ -18,10 +18,10 @@ func TestNodeConstructorWithInput(t *testing.T) {
 }
 
 func TestNodeConstructorChildrenParentNil(t *testing.T) {
-	var node = Node{1, nil}
+	var node = Node{1, nil, nil, nil}
 	rightResult := node.right
-	//leftResult := node.left
-	//parentResult := node.parent
+	leftResult := node.left
+	parentResult := node.parent
 
 	if rightResult != nil {
 		t.Errorf("TestNodeConstructorRightNil: node.right failed")
@@ -29,17 +29,17 @@ func TestNodeConstructorChildrenParentNil(t *testing.T) {
 		fmt.Println("Actual: ", rightResult)
 	}
 
-	//if leftResult != nil {
-	//	t.Errorf("TestNodeConstructorLeftNil: node.left failed")
-	//	fmt.Println("Expected: ", nil)
-	//	fmt.Println("Actual: ", leftResult)
-	//}
-	//
-	//if parentResult != nil {
-	//	t.Errorf("TestNodeConstructorParentNil: node.parent failed")
-	//	fmt.Println("Expected: ", nil)
-	//	fmt.Println("Actual: ", parentResult)
-	//}
+	if leftResult != nil {
+		t.Errorf("TestNodeConstructorLeftNil: node.left failed")
+		fmt.Println("Expected: ", nil)
+		fmt.Println("Actual: ", leftResult)
+	}
+
+	if parentResult != nil {
+		t.Errorf("TestNodeConstructorParentNil: node.parent failed")
+		fmt.Println("Expected: ", nil)
+		fmt.Println("Actual: ", parentResult)
+	}
 
 
 }
