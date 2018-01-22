@@ -5,11 +5,15 @@ import (
 	"fmt"
 )
 
+func Setup() BST {
+	var tree = BST{}
+	tree.add(11)
+	return tree
+}
 
 func TestEmptyTreeHasNilRoot(t *testing.T) {
 	var tree = BST{}
 	actual := tree.root
-
 
 	if actual != nil {
 		t.Errorf("TestEmptyTreeHasNilRoot: tree.root failed")
@@ -21,8 +25,7 @@ func TestEmptyTreeHasNilRoot(t *testing.T) {
 
 
 func TestRootNotNilAfterAdd(t *testing.T) {
-	var tree = BST{}
-	tree.add(11)
+	var tree = Setup()
 	actual := tree.root
 
 	if actual == nil {
@@ -34,8 +37,7 @@ func TestRootNotNilAfterAdd(t *testing.T) {
 }
 
 func TestFirstValueAssignedToRoot(t *testing.T) {
-	var tree = BST{}
-	tree.add(11)
+	var tree = Setup()
 	actual := tree.root.value
 	var expectation int32 = 11
 
@@ -46,4 +48,8 @@ func TestFirstValueAssignedToRoot(t *testing.T) {
 	}
 
 }
+
+//func TestLargerValueInsertedToRight(t *testing.T) {
+//
+//}
 
