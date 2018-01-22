@@ -49,7 +49,16 @@ func TestFirstValueAssignedToRoot(t *testing.T) {
 
 }
 
-//func TestLargerValueInsertedToRight(t *testing.T) {
-//
-//}
+func TestLargerValueInsertedToRight(t *testing.T) {
+	var tree = Setup()
+	tree.add(12)
+	actual := tree.root.right.value
+	var expectation int32 = 12
+
+	if actual != expectation {
+		t.Errorf("TestLargerValueInsertedToRight: tree.root.right.value failed")
+		fmt.Println("Expected: ", expectation)
+		fmt.Println("Actual: ", actual)
+	}
+}
 
