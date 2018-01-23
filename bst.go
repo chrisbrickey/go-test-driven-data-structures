@@ -15,15 +15,24 @@ func(b *BST) add(n int32) {
 
 	if n < current.value {
 		if current.left != nil {
-
+			current.left = &newNode
+			return
 		}
 	}
 
-	for current != nil {
-		if n > current {
 
-		}
+	if current.right != nil {
+		current.right = &newNode
+		return
 	}
+
+
+
+	//for current != nil {
+	//	if n > current.value {
+	//
+	//	}
+	//}
 
 
 }
