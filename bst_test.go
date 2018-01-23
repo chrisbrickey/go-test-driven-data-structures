@@ -52,7 +52,12 @@ func TestFirstValueAssignedToRoot(t *testing.T) {
 func TestSmallerValueInsertedToLeft(t *testing.T) {
 	var tree = Setup()
 	tree.add(10)
-	actual := tree.root.left.value
+	var leftNode = tree.root.left
+
+	if leftNode == nil {
+
+	}
+	actual := tree.root.left.value //left.value NOT valid if .left is nil
 	var expectation int32 = 10
 
 	if actual != expectation {
